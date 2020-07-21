@@ -6,7 +6,12 @@ module.exports = {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
   },
-  mode: 'development',
+  mode: process.env.NODE_ENV,
+  devServer: {
+    port: 8080,
+    publicPath: '/build/',
+    hot: true,
+  },
   module: {
     rules: [
       {
