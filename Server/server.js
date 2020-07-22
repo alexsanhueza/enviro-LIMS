@@ -7,21 +7,25 @@ const methodsController = require('./methodsController.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/methods', methodsController.getMethods, (req, res) => {
+const methodsRouter = express.Router();
+
+methodsRouter.get('/', methodsController.getMethods, (req, res) => {
   return res.json(res.locals.methods);
 });
 
-app.post('/methods', methodsController.addMethod, (req, res) => {
+methodsRouter.post('/', methodsController.addMethod, (req, res) => {
   return res.redirect('/methods');
 });
 
-app.patch('/methods/:_id', methodsController.editMethod, (req, res) => {
+methodsRouter.patch('/:_id', methodsController.editMethod, (req, res) => {
   return res.redirect('/methods');
 });
 
-app.delete('/methods/:_id', methodsController.deleteMethod, (req, res) => {
+methodsRouter.delete('/:_id', methodsController.deleteMethod, (req, res) => {
   return res.redirect('/methods');
 });
+
+app.use('/methods', methodsRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
