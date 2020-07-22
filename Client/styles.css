@@ -1,8 +1,17 @@
 html {
+  /* background-image: url('../assets/758501.jpg'); */
+  background-color: white;
+  font-family: 'Noto Sans', sans-serif !important;
+  color: rgb(34, 34, 34);
 }
 
 body {
-  margin: 50px 200px;
+  margin: 20px 150px;
+  padding: 25px;
+  background-color: #dddddd73;
+  border-radius: 5px;
+  max-height: 450px;
+  box-shadow: 2px 1px 5px 1px #b9b9b9;
 }
 
 #main {
@@ -20,11 +29,14 @@ body {
 .navBtn {
   margin-bottom: 5px;
   margin-right: 5px;
+  height: 25px;
+  width: 100px;
 }
 
 #listContainer {
   display: grid;
   grid-template-columns: 1fr 4fr;
+
   /* margin-top: 10px; */
 }
 
@@ -33,12 +45,15 @@ body {
   min-height: 250px;
   max-height: 300px;
   overflow-y: scroll;
+  background-color: #f8fafc;
+  border-radius: 5px;
 }
 
 #sidebarList p {
-  padding: 5px;
-  margin-block-start: 5px;
+  padding: 10px;
+  margin-block-start: 0;
   margin-block-end: 0;
+  line-height: 100%;
   border-bottom: 1px solid;
   border-top-style: none;
 }
@@ -49,6 +64,8 @@ body {
   margin-left: 10px;
   display: grid;
   grid-template-columns: 5fr 1fr;
+  background-color: #f8fafc;
+  border-radius: 5px;
 }
 
 .infoBtns {
@@ -64,7 +81,7 @@ body {
 
 .infoList {
   padding-top: 30px;
-  padding-left: 10px;
+  padding-left: 30px;
 }
 
 .infoList div {
@@ -76,11 +93,19 @@ body {
 }
 
 .infoList input {
-  margin-right: 20%;
+  margin-right: 15%;
   width: 60%;
   float: right;
 }
 
 #addMethod {
   margin-top: 5px;
+  height: 20px;
+}
+
+button {
+  border-style: none;
+  border-radius: 5px;
+  background-color: #a7a7a79d;
+  font-family: 'Noto Sans', sans-serif;
 }
