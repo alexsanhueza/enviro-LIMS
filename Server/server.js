@@ -15,7 +15,9 @@ app.post('/methods', methodsController.addMethod, (req, res) => {
   return res.redirect('/methods');
 });
 
-app.patch('/methods/:');
+app.patch('/methods/:_id', methodsController.editMethod, (req, res) => {
+  return res.redirect('/methods');
+});
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));

@@ -28,8 +28,14 @@ methodsController.addMethod = (req, res, next) => {
 };
 
 methodsController.editMethod = (req, res, next) => {
-  console.log(req.body);
-  return next();
+  const methodID = parseInt(req.params._id);
+  let key = Object.keys(req.body)[0];
+  let val = Object.values(req.body)[0];
+  const queryStr = `UPDATE methods SET ${key} = '${val}' WHERE _id=${methodID};`;
+
+  db.query(queryStr)
+    .then(() => next())
+    .catch((err) => next(err));
 };
 
 module.exports = methodsController;
