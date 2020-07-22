@@ -92,6 +92,7 @@ class MainContainer extends Component {
     return (
       <div id="main">
         <div id="nav">
+          <div>Select Method</div>
           <Nav />
         </div>
         <div id="sidebar">

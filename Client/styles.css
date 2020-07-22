@@ -1,20 +1,73 @@
 html {
-  color: lightblue;
 }
 
 #main {
   display: flex;
   flex-direction: column;
 }
+#nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-left: 5px;
+}
 
-#navBtns {
-  float: right;
+.navBtn {
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 #listContainer {
   display: grid;
   grid-template-columns: 1fr 4fr;
+  /* margin-top: 10px; */
 }
 
 #sidebarList {
+  border: 1px solid;
+  min-height: 250px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+#sidebarList p {
+  padding: 5px;
+  margin-block-start: 5px;
+  margin-block-end: 0;
+  border-bottom: 1px solid;
+  border-top-style: none;
+}
+
+.selectedInfo {
+  padding: 10px;
+  border: 1px solid;
+  margin-left: 10px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+.infoBtns {
+  float: right;
+  border-left: 1px solid;
+  padding-left: 10px;
+}
+
+.infoBtns button {
+  height: 40px;
+  width: 68px;
+  margin-bottom: 5px;
+}
+
+.infoList {
+  padding-top: 30px;
+  padding-left: 10px;
+}
+
+.infoList div {
+  padding-top: 10px;
+}
+
+#addMethod {
+  margin-top: 5px;
 }
