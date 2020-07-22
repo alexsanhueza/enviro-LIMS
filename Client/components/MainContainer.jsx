@@ -12,6 +12,7 @@ class MainContainer extends Component {
     };
     this.addMethodMode = this.addMethodMode.bind(this);
     this.saveNewMethod = this.saveNewMethod.bind(this);
+    this.displayMethodInfo = this.displayMethodInfo.bind(this);
   }
 
   addMethodMode() {
@@ -19,7 +20,6 @@ class MainContainer extends Component {
   }
 
   saveNewMethod(postData) {
-    console.log(postData);
     fetch(`/methods`, {
       method: 'POST',
       headers: {
@@ -28,10 +28,15 @@ class MainContainer extends Component {
       body: JSON.stringify(postData),
     })
       .then((resp) => resp.json())
-      .then(() => {
+      .then((updatedMethods) => {
         console.log('New Method successful!');
-        this.setState({ display: 'METHOD_INFO' });
+        this.setState({ display: 'METHOD_INFO', methods: updatedMethods });
       });
+  }
+
+  displayMethodInfo(id) {
+    const methods = this.state.methods;
+    this.setState({ current: methods[id] });
   }
 
   componentDidMount() {
@@ -55,6 +60,7 @@ class MainContainer extends Component {
             display={this.state.display}
             addMethodMode={this.addMethodMode}
             saveNewMethod={this.saveNewMethod}
+            displayMethodInfo={this.displayMethodInfo}
           />
         </div>
       </div>

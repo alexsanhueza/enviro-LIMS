@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import InfoContainer from './InfoContainer.jsx';
 
-const Sidebar = ({ methods, current, display, addMethodMode, saveNewMethod }) => {
-  const methodList = methods.map((meth, index) => <p key={index}>{meth.epa_method}</p>);
+const Sidebar = ({ methods, current, display, addMethodMode, saveNewMethod, displayMethodInfo }) => {
+  const methodList = methods.map((meth, index) => (
+    <p key={index} onClick={() => displayMethodInfo(index)}>
+      {meth.epa_method}
+    </p>
+  ));
 
   return (
     <div>
