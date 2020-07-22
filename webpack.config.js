@@ -13,6 +13,7 @@ module.exports = {
     proxy: {
       '/methods': 'http://localhost:3000',
     },
+    watchContentBase: true,
     hot: true,
   },
   module: {

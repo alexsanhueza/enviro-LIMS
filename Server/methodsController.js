@@ -14,6 +14,7 @@ methodsController.getMethods = (req, res, next) => {
 };
 
 methodsController.addMethod = (req, res, next) => {
+  console.log('req.body, ', req.body);
   const { epa_method, instrumentation, method_description, extraction_solvent, department } = req.body;
   const queryStr = `INSERT INTO methods VALUES(
       DEFAULT, '${epa_method}', '${instrumentation}', 
