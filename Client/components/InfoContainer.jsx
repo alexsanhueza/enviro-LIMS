@@ -22,25 +22,21 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
     return (
       <div className="selectedInfo">
         <div className="infoList">
-          <label>EPA Method: </label>
-          <input id="newEpaMethod" type="text"></input>
-          <br />
-
-          <label>Description: </label>
-          <input id="newDescription" type="text"></input>
-          <br />
-
-          <label>Instrumentation: </label>
-          <input id="newInstrumentation" type="text"></input>
-          <br />
-
-          <label>Department: </label>
-          <input id="newDepartment" type="text"></input>
-          <br />
-
-          <label>Extraction Solvent: </label>
-          <input id="newExtSolv" type="text"></input>
-          <br />
+          <div>
+            EPA Method:<input id="newEpaMethod" type="text"></input>
+          </div>
+          <div>
+            Description: <input id="newDescription" type="text"></input>
+          </div>
+          <div>
+            Instrumentation: <input id="newInstrumentation" type="text"></input>
+          </div>
+          <div>
+            Department: <input id="newDepartment" type="text"></input>
+          </div>
+          <div>
+            Extraction Solvent: <input id="newExtSolv" type="text"></input>
+          </div>
         </div>
         <div className="infoBtns">
           <button
@@ -67,25 +63,21 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
     return (
       <div className="selectedInfo">
         <div className="infoList">
-          <label>EPA Method: </label>
-          <input id="newEpaMethod" type="text" defaultValue={current.epa_method}></input>
-          <br />
-
-          <label>Description: </label>
-          <input id="newDescription" type="text" defaultValue={current.method_description}></input>
-          <br />
-
-          <label>Instrumentation: </label>
-          <input id="newInstrumentation" type="text" defaultValue={current.instrumentation}></input>
-          <br />
-
-          <label>Department: </label>
-          <input id="newDepartment" type="text" defaultValue={current.department}></input>
-          <br />
-
-          <label>Extraction Solvent: </label>
-          <input id="newExtSolv" type="text" defaultValue={current.extraction_solvent}></input>
-          <br />
+          <div>
+            EPA Method: <input id="newEpaMethod" type="text" defaultValue={current.epa_method}></input>
+          </div>
+          <div>
+            Description: <input id="newDescription" type="text" defaultValue={current.method_description}></input>
+          </div>
+          <div>
+            Instrumentation: <input id="newInstrumentation" type="text" defaultValue={current.instrumentation}></input>
+          </div>
+          <div>
+            Department: <input id="newDepartment" type="text" defaultValue={current.department}></input>
+          </div>
+          <div>
+            Extraction Solvent: <input id="newExtSolv" type="text" defaultValue={current.extraction_solvent}></input>
+          </div>
         </div>
         <div className="infoBtns">
           <button
