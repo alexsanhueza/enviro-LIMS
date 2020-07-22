@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MainContainer from './MainContainer.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -6,7 +7,7 @@ class App extends Component {
   }
 
   render() {
-    return <button>Click me!</button>;
+    return <MainContainer />;
   }
 }
 

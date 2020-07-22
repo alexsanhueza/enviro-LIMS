@@ -7,6 +7,7 @@ const methodsController = require('./methodsController.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+/** METHODS ROUTER **/
 const methodsRouter = express.Router();
 
 methodsRouter.get('/', methodsController.getMethods, (req, res) => {
@@ -27,6 +28,7 @@ methodsRouter.delete('/:_id', methodsController.deleteMethod, (req, res) => {
 
 app.use('/methods', methodsRouter);
 
+/** SERVE STATIC ASSETS IN PRODUCTION MODE ONLY **/
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
 
@@ -35,8 +37,13 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+/** GLOBAL ERROR HANDLER **/
+app.use('*', (req, res, next) => {
+  return res.status(404).json('Error: page not found');
+});
+
 app.use((err, req, res, next) => {
-  res.status(500).json('Something went wrong on the server');
+  res.status(500).json(err);
 });
 
 app.listen(3000, () => console.log("You're in the freakin Matrix boi"));
