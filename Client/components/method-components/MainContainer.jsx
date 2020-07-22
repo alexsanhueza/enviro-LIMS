@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './Nav.jsx';
+import Nav from '../Nav.jsx';
 import Sidebar from './Sidebar.jsx';
 
 class MainContainer extends Component {
@@ -17,11 +17,10 @@ class MainContainer extends Component {
     this.deleteMethod = this.deleteMethod.bind(this);
   }
 
+  /** METHOD METHODS**/
   displayMode(mode) {
-    console.log(mode);
     this.setState({ display: mode });
   }
-
   saveNewMethod(postData) {
     fetch(`/methods`, {
       method: 'POST',
@@ -47,8 +46,6 @@ class MainContainer extends Component {
     })
       .then((resp) => resp.json())
       .then((updatedMethods) => {
-        // console.log('updatedMethods: ', updatedMethods);
-
         this.setState({
           methods: updatedMethods,
           current: patchData,
@@ -93,7 +90,7 @@ class MainContainer extends Component {
       <div id="main">
         <div id="nav">
           <div>Select Method</div>
-          <Nav />
+          <Nav changeMode={this.props.changeMode} />
         </div>
         <div id="sidebar">
           <Sidebar
