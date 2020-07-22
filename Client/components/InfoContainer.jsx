@@ -92,7 +92,7 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
               })
             }
           >
-            Save {current.epa_method}
+            Save Method
           </button>
           <button id="deleteMethod" onClick={() => deleteMethod(current._id)}>
             Delete Method
