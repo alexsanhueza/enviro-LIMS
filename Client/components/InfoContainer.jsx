@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMethod, deleteMethod }) => {
   if (current && display === 'METHOD_INFO') {
     return (
-      <div>
+      <div id="selectedInfo">
         <button id="editMethod" onClick={() => displayMode('EDIT_METHOD')}>
           Edit Method
         </button>
@@ -16,7 +16,7 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
     );
   } else if (display === 'ADD_METHOD') {
     return (
-      <div>
+      <div id="newMethod">
         <label>EPA Method: </label>
         <input id="newEpaMethod" type="text"></input>
         <br />
@@ -55,7 +55,7 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
     );
   } else if (display === 'EDIT_METHOD') {
     return (
-      <div>
+      <div id="editMethod">
         <label>EPA Method: </label>
         <input id="newEpaMethod" type="text" defaultValue={current.epa_method}></input>
         <br />

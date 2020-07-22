@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 const Nav = (props) => {
   return (
-    <div>
+    <div id="navBtns">
       <button className="navBtn">Methods</button>
       <button className="navBtn">Reagents</button>
       <button className="navBtn">Departments</button>

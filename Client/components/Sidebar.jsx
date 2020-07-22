@@ -9,11 +9,9 @@ const Sidebar = ({ methods, current, display, displayMode, saveNewMethod, displa
   ));
 
   return (
-    <div>
-      <div>{methodList}</div>
-      <button id="addMethod" onClick={() => displayMode('ADD_METHOD')}>
-        Add Method
-      </button>
+    <div id="listContainer">
+      <div id="sidebarList">{methodList}</div>
+
       <InfoContainer
         current={current}
         display={display}
@@ -22,6 +20,9 @@ const Sidebar = ({ methods, current, display, displayMode, saveNewMethod, displa
         editMethod={editMethod}
         deleteMethod={deleteMethod}
       />
+      <button id="addMethod" onClick={() => displayMode('ADD_METHOD')}>
+        Add Method
+      </button>
     </div>
   );
 };

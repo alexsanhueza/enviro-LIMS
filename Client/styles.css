@@ -1,3 +1,20 @@
 html {
   color: lightblue;
 }
+
+#main {
+  display: flex;
+  flex-direction: column;
+}
+
+#navBtns {
+  float: right;
+}
+
+#listContainer {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+#sidebarList {
+}
