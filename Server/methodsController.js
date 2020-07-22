@@ -38,4 +38,13 @@ methodsController.editMethod = (req, res, next) => {
     .catch((err) => next(err));
 };
 
+methodsController.deleteMethod = (req, res, next) => {
+  const methodID = parseInt(req.params._id);
+  const queryStr = `DELETE FROM methods WHERE _id=${methodID};`;
+
+  db.query(queryStr)
+    .then(() => next())
+    .catch((err) => next(err));
+};
+
 module.exports = methodsController;
