@@ -10,13 +10,16 @@ class MainContainer extends Component {
       current: null,
       display: 'METHOD_INFO',
     };
-    this.addMethodMode = this.addMethodMode.bind(this);
+    this.displayMode = this.displayMode.bind(this);
     this.saveNewMethod = this.saveNewMethod.bind(this);
     this.displayMethodInfo = this.displayMethodInfo.bind(this);
+    this.editMethod = this.editMethod.bind(this);
+    this.deleteMethod = this.deleteMethod.bind(this);
   }
 
-  addMethodMode() {
-    this.setState({ display: 'ADD_METHOD' });
+  displayMode(mode) {
+    console.log(mode);
+    this.setState({ display: mode });
   }
 
   saveNewMethod(postData) {
@@ -30,7 +33,45 @@ class MainContainer extends Component {
       .then((resp) => resp.json())
       .then((updatedMethods) => {
         console.log('New Method successful!');
-        this.setState({ display: 'METHOD_INFO', methods: updatedMethods });
+        this.setState({ display: 'METHOD_INFO', methods: updatedMethods, current: postData });
+      });
+  }
+
+  editMethod(id, patchData) {
+    fetch(`/methods/edit/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
+      body: JSON.stringify(patchData),
+    })
+      .then((resp) => resp.json())
+      .then((updatedMethods) => {
+        // console.log('updatedMethods: ', updatedMethods);
+
+        this.setState({
+          methods: updatedMethods,
+          current: patchData,
+          display: 'METHOD_INFO',
+        });
+      })
+      .catch((err) => console.log(err));
+  }
+
+  deleteMethod(id) {
+    fetch(`/methods/edit/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
+    })
+      .then((res) => res.json())
+      .then((updatedMethods) => {
+        this.setState({
+          methods: updatedMethods,
+          current: updatedMethods[0],
+          display: 'METHOD_INFO',
+        });
       });
   }
 
@@ -58,9 +99,11 @@ class MainContainer extends Component {
             methods={this.state.methods}
             current={this.state.current}
             display={this.state.display}
-            addMethodMode={this.addMethodMode}
+            displayMode={this.displayMode}
             saveNewMethod={this.saveNewMethod}
             displayMethodInfo={this.displayMethodInfo}
+            editMethod={this.editMethod}
+            deleteMethod={this.deleteMethod}
           />
         </div>
       </div>

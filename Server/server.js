@@ -15,15 +15,16 @@ methodsRouter.get('/', methodsController.getMethods, (req, res) => {
 });
 
 methodsRouter.post('/', methodsController.addMethod, (req, res) => {
-  return res.redirect('/methods');
+  return res.redirect(301, '/methods');
 });
 
-methodsRouter.patch('/:_id', methodsController.editMethod, (req, res) => {
-  return res.redirect('/methods');
+methodsRouter.patch('/edit/:_id', methodsController.editMethod, (req, res) => {
+  return res.redirect(303, '/methods');
 });
 
-methodsRouter.delete('/:_id', methodsController.deleteMethod, (req, res) => {
-  return res.redirect('/methods');
+methodsRouter.delete('/edit/:_id', methodsController.deleteMethod, (req, res) => {
+  return res.redirect(303, '/methods');
+  // return res.json('method updated');
 });
 
 app.use('/methods', methodsRouter);

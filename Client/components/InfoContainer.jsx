@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-const InfoContainer = ({ current, display, saveNewMethod }) => {
+const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMethod, deleteMethod }) => {
   if (current && display === 'METHOD_INFO') {
     return (
       <div>
-        <button id="editMethod">Edit Method</button>
+        <button id="editMethod" onClick={() => displayMode('EDIT_METHOD')}>
+          Edit Method
+        </button>
         <div>EPA Method: {current.epa_method}</div>
         <div>Description: {current.method_description}</div>
         <div>Instrumentation: {current.instrumentation}</div>
@@ -40,7 +42,7 @@ const InfoContainer = ({ current, display, saveNewMethod }) => {
           onClick={() =>
             saveNewMethod({
               epa_method: document.getElementById('newEpaMethod').value,
-              description: document.getElementById('newDescription').value,
+              method_description: document.getElementById('newDescription').value,
               instrumentation: document.getElementById('newInstrumentation').value,
               department: document.getElementById('newDepartment').value,
               extraction_solvent: document.getElementById('newExtSolv').value,
@@ -48,6 +50,51 @@ const InfoContainer = ({ current, display, saveNewMethod }) => {
           }
         >
           Save New Method
+        </button>
+      </div>
+    );
+  } else if (display === 'EDIT_METHOD') {
+    return (
+      <div>
+        <label>EPA Method: </label>
+        <input id="newEpaMethod" type="text" defaultValue={current.epa_method}></input>
+        <br />
+
+        <label>Description: </label>
+        <input id="newDescription" type="text" defaultValue={current.method_description}></input>
+        <br />
+
+        <label>Instrumentation: </label>
+        <input id="newInstrumentation" type="text" defaultValue={current.instrumentation}></input>
+        <br />
+
+        <label>Department: </label>
+        <input id="newDepartment" type="text" defaultValue={current.department}></input>
+        <br />
+
+        <label>Extraction Solvent: </label>
+        <input id="newExtSolv" type="text" defaultValue={current.extraction_solvent}></input>
+        <br />
+
+        <button
+          id="saveMethod"
+          onClick={() =>
+            editMethod(current._id, {
+              epa_method: document.getElementById('newEpaMethod').value,
+              method_description: document.getElementById('newDescription').value,
+              instrumentation: document.getElementById('newInstrumentation').value,
+              department: document.getElementById('newDepartment').value,
+              extraction_solvent: document.getElementById('newExtSolv').value,
+            })
+          }
+        >
+          Save Changes to Method: {current.epa_method}
+        </button>
+        <button id="deleteMethod" onClick={() => deleteMethod(current._id)}>
+          Delete Method
+        </button>
+        <button id="cancel" onClick={() => displayMode('METHOD_INFO')}>
+          Cancel and Discard Changes
         </button>
       </div>
     );
