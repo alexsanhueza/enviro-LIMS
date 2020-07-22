@@ -22,6 +22,9 @@ class MainContainer extends Component {
     console.log(postData);
     fetch(`/methods`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
       body: JSON.stringify(postData),
     })
       .then((resp) => resp.json())
