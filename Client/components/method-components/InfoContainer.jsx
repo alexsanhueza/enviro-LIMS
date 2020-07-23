@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 
-const InfoContainer = ({ current, display, reags, saveNewMethod, displayMode, editMethod, deleteMethod, getReagents }) => {
+const InfoContainer = ({
+  current,
+  display,
+  reags,
+  saveNewMethod,
+  displayMode,
+  editMethod,
+  deleteMethod,
+  getReagents,
+  getAllReagents,
+  allReags,
+}) => {
   if (current && display === 'METHOD_INFO') {
     let reagentInfo;
     reags
@@ -95,12 +106,33 @@ const InfoContainer = ({ current, display, reags, saveNewMethod, displayMode, ed
           >
             Save Method
           </button>
+          <button onClick={getAllReagents}>Add Reagent</button>
           <button id="deleteMethod" onClick={() => deleteMethod(current._id)}>
             Delete Method
           </button>
           <button id="cancel" onClick={() => displayMode('METHOD_INFO')}>
             Cancel
           </button>
+        </div>
+      </div>
+    );
+  } else if (current && allReags && display === 'ADD_REAGENTS') {
+    const choices = allReags.map((r, index) => (
+      <option key={index} value={r.name}>
+        {r.name}
+      </option>
+    ));
+    return (
+      <div className="selectedInfo">
+        <div className="infoList">
+          Choose reagent to add to the method: {current.epa_method}
+          <br />
+          <select id="reagToAdd" className="dropdown">
+            {choices}
+          </select>
+        </div>
+        <div className="infoBtns">
+          <button>{current.epa_method}</button>
         </div>
       </div>
     );

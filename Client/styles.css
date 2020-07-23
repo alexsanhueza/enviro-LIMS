@@ -105,6 +105,12 @@ body {
   float: right;
 }
 
+.dropdown {
+  margin-top: 20px;
+  width: 60%;
+  float: left;
+}
+
 .addNew {
   margin-top: 5px;
   height: 40px;

@@ -10,6 +10,8 @@ class MainContainer extends Component {
       current: null,
       display: 'METHOD_INFO',
       reags: null,
+      allReags: null,
+      toAdd: null,
     };
     this.displayMode = this.displayMode.bind(this);
     this.saveNewMethod = this.saveNewMethod.bind(this);
@@ -17,6 +19,7 @@ class MainContainer extends Component {
     this.editMethod = this.editMethod.bind(this);
     this.deleteMethod = this.deleteMethod.bind(this);
     this.getReagents = this.getReagents.bind(this);
+    this.getAllReagents = this.getAllReagents.bind(this);
   }
 
   displayMode(mode) {
@@ -77,13 +80,31 @@ class MainContainer extends Component {
 
   displayMethodInfo(id) {
     const methods = this.state.methods;
-    this.setState({ current: methods[id], reags: null });
+    this.setState({ display: 'METHOD_INFO', current: methods[id], reags: null });
   }
 
   getReagents(id) {
     fetch(`/methods/reagents/${id}`)
       .then((resp) => resp.json())
       .then((reags) => this.setState({ reags: reags }));
+  }
+
+  getAllReagents() {
+    fetch('/reagents')
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({
+          display: 'ADD_REAGENTS',
+          allReags: data,
+        });
+      })
+      .catch((err) => console.log(err));
+  }
+  handleChange(e) {
+    this.setState({
+      toAdd: e.target.value,
+    });
   }
 
   componentDidMount() {
@@ -107,12 +128,14 @@ class MainContainer extends Component {
             current={this.state.current}
             display={this.state.display}
             reags={this.state.reags}
+            allReags={this.state.allReags}
             displayMode={this.displayMode}
             saveNewMethod={this.saveNewMethod}
             displayMethodInfo={this.displayMethodInfo}
             editMethod={this.editMethod}
             deleteMethod={this.deleteMethod}
             getReagents={this.getReagents}
+            getAllReagents={this.getAllReagents}
           />
         </div>
       </div>
