@@ -18,7 +18,7 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
         </div>
       </div>
     );
-  } else if (display === 'ADD_METHOD') {
+  } else if (current && display === 'ADD_METHOD') {
     return (
       <div className="selectedInfo">
         <div className="infoList">
@@ -59,7 +59,7 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
         </div>
       </div>
     );
-  } else if (display === 'EDIT_METHOD') {
+  } else if (current && display === 'EDIT_METHOD') {
     return (
       <div className="selectedInfo">
         <div className="infoList">

@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import ReagentsInfo from './ReagentsInfo.jsx';
-const ReagentsSidebar = ({}) => {
-  //   const methodList = methods.map((meth, index) => (
-  //     <p key={index} onClick={() => displayMethodInfo(index)}>
-  //       {meth.epa_method}
-  //     </p>
-  //   ));
 
+const ReagentsSidebar = ({ reagents, current, display, displayReagentInfo }) => {
+  const reagentList = reagents.map((reag, index) => (
+    <p key={index} onClick={() => displayReagentInfo(index)}>
+      {reag.name}
+    </p>
+  ));
   return (
     <div id="listContainer">
-      <div id="sidebarList"></div>
+      <div id="sidebarList">{reagentList}</div>
 
-      <ReagentsInfo />
+      <ReagentsInfo current={current} display={display} />
       <button id="addMethod">Add Reagent</button>
     </div>
   );
