@@ -8,8 +8,6 @@ const reagentsRouter = require('./reagentsRouter.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../assets/')));
-
 app.use('/reagents', reagentsRouter);
 app.use('/methods', methodsRouter);
 

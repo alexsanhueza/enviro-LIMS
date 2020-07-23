@@ -121,4 +121,5 @@ button:hover {
   background-color: white;
   border: solid 1px #e2dfdf;
   box-shadow: 0px 0px 10px -2px #e4e4e4 inset;
+  transition: 0.1s;
 }
