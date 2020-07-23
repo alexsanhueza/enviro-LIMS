@@ -14,6 +14,7 @@ const Sidebar = ({
   reags,
   getAllReagents,
   allReags,
+  handleChange,
 }) => {
   const methodList = methods.map((meth, index) => (
     <p key={index} onClick={() => displayMethodInfo(index)}>
@@ -36,6 +37,7 @@ const Sidebar = ({
         getReagents={getReagents}
         getAllReagents={getAllReagents}
         allReags={allReags}
+        handleChange={handleChange}
       />
       <button className="addNew" onClick={() => displayMode('ADD_METHOD')}>
         Add Method

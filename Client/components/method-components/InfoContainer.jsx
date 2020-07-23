@@ -11,6 +11,7 @@ const InfoContainer = ({
   getReagents,
   getAllReagents,
   allReags,
+  handleChange,
 }) => {
   if (current && display === 'METHOD_INFO') {
     let reagentInfo;
@@ -118,7 +119,7 @@ const InfoContainer = ({
     );
   } else if (current && allReags && display === 'ADD_REAGENTS') {
     const choices = allReags.map((r, index) => (
-      <option key={index} value={r.name}>
+      <option key={index} value={r._id}>
         {r.name}
       </option>
     ));
@@ -127,7 +128,7 @@ const InfoContainer = ({
         <div className="infoList">
           Choose reagent to add to the method: {current.epa_method}
           <br />
-          <select id="reagToAdd" className="dropdown">
+          <select id="reagToAdd" className="dropdown" onChange={handleChange}>
             {choices}
           </select>
         </div>

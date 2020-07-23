@@ -20,6 +20,7 @@ class MainContainer extends Component {
     this.deleteMethod = this.deleteMethod.bind(this);
     this.getReagents = this.getReagents.bind(this);
     this.getAllReagents = this.getAllReagents.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   displayMode(mode) {
@@ -136,6 +137,7 @@ class MainContainer extends Component {
             deleteMethod={this.deleteMethod}
             getReagents={this.getReagents}
             getAllReagents={this.getAllReagents}
+            handleChange={this.handleChange}
           />
         </div>
       </div>
