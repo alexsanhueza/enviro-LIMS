@@ -6,12 +6,15 @@ html {
 }
 
 body {
-  margin: 40px 150px;
+  margin: 60px 150px;
   padding: 25px;
-  background-color: #dddddd73;
+  background-color: #76ecce2d;
   border-radius: 5px;
   max-height: 450px;
-  box-shadow: 2px 1px 5px 1px #b9b9b9;
+  box-shadow: 1px 1px 10px 0px #d8d8d8;
+}
+h1 {
+  color: #616161;
 }
 
 #main {
@@ -41,12 +44,12 @@ body {
 }
 
 #sidebarList {
-  border: 1px solid;
-  min-height: 250px;
-  max-height: 300px;
+  /* border: 1px solid; */
+  height: 300px;
   overflow-y: scroll;
-  background-color: #f8fafc;
+  background-color: white;
   border-radius: 5px;
+  box-shadow: 2px 1px 5px 0px #e4e4e4 inset;
 }
 
 #sidebarList p {
@@ -54,18 +57,24 @@ body {
   margin-block-start: 0;
   margin-block-end: 0;
   line-height: 100%;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #e4e4e4;
   border-top-style: none;
+  cursor: default;
+}
+
+#sidebarList p:hover {
+  background-color: #f3f3f383;
 }
 
 .selectedInfo {
   padding: 10px 0;
-  border: 1px solid;
+  /* border: 1px solid; */
   margin-left: 10px;
   display: grid;
   grid-template-columns: 5fr 1fr;
-  background-color: #f8fafc;
+  background-color: white;
   border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px #e4e4e4 inset;
 }
 
 .infoBtns {
@@ -98,7 +107,7 @@ body {
   float: right;
 }
 
-#addMethod {
+.addNew {
   margin-top: 5px;
   height: 20px;
 }
@@ -106,6 +115,12 @@ body {
 button {
   border-style: none;
   border-radius: 5px;
-  background-color: #a7a7a79d;
+  background-color: #e2dfdf;
   font-family: 'Noto Sans', sans-serif;
+}
+
+button:hover {
+  background-color: white;
+  border: solid 1px #e2dfdf;
+  box-shadow: 0px 0px 5px 0px #e4e4e4 inset;
 }

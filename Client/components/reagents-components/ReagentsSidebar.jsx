@@ -28,7 +28,9 @@ const ReagentsSidebar = ({
         editReagent={editReagent}
         deleteReagent={deleteReagent}
       />
-      <button onClick={() => displayMode('ADD_REAGENT')}>Add Reagent</button>
+      <button className="addNew" onClick={() => displayMode('ADD_REAGENT')}>
+        Add Reagent
+      </button>
     </div>
   );
 };
