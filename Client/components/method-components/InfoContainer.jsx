@@ -10,6 +10,9 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
           <div>Instrumentation: {current.instrumentation}</div>
           <div>Department: {current.department}</div>
           <div>Extraction Solvent: {current.extraction_solvent}</div>
+          <div>
+            <button>Reagent Information</button>
+          </div>
         </div>
         <div className="infoBtns">
           <button onClick={() => displayMode('EDIT_METHOD')}>Edit Method</button>

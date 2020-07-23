@@ -50,4 +50,17 @@ methodsController.deleteMethod = (req, res, next) => {
     .catch((err) => next(err));
 };
 
+methodsController.getReagents = (req, res, next) => {
+  const methodID = parseInt(req.params._id);
+  const queryStr = `SELECT * FROM reagents r JOIN reagents_in_methods rm ON rm.method_id = ${methodID} WHERE r._id = rm.reagent_id;`;
+
+  db.query(queryStr)
+    .then((data) => {
+      console.log(data.rows);
+      res.locals.reagents = data.rows;
+      return next();
+    })
+    .catch((err) => next(err));
+};
+
 module.exports = methodsController;

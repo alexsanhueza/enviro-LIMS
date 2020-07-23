@@ -56,6 +56,11 @@ INSERT INTO reagents_in_methods VALUES(DEFAULT, 18, 2);
 INSERT INTO reagents_in_methods VALUES(DEFAULT, 37, 3);
 INSERT INTO reagents_in_methods VALUES(DEFAULT, 40, 1);
 
+ALTER TABLE  reagents_in_methods ADD CONSTRAINT "reagents_in_methods_fk0" FOREIGN KEY ("method_id") REFERENCES  methods("_id");
+ALTER TABLE  reagents_in_methods ADD CONSTRAINT "reagents_in_methods_fk1" FOREIGN KEY ("reagent_id") REFERENCES  reagents("_id");
+
+
+
 
 
 

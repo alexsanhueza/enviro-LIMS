@@ -2,6 +2,11 @@ const express = require('express');
 const methodsController = require('./methodsController.js');
 const methodsRouter = express.Router();
 
+methodsRouter.get('/reagents/:_id', methodsController.getReagents, (req, res) => {
+  console.log(res.locals.reagents);
+  return res.json(res.locals.reagents);
+});
+
 methodsRouter.get('/', methodsController.getMethods, (req, res) => {
   return res.json(res.locals.methods);
 });

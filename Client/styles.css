@@ -12,8 +12,6 @@ body {
   max-height: 450px;
   box-shadow: 1px 1px 10px 0px #d8d8d8;
 }
-h1 {
-}
 
 #main {
   display: flex;
@@ -107,7 +105,7 @@ h1 {
 
 .addNew {
   margin-top: 5px;
-  height: 20px;
+  height: 40px;
 }
 
 button {

@@ -29,4 +29,4 @@ app.use((err, req, res, next) => {
   res.status(500).json(err);
 });
 
-app.listen(3000, () => console.log(path.join(__dirname, '../assets')));
+app.listen(3000, () => console.log('You in the freakin Matrix'));
