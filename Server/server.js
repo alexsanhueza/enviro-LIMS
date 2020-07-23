@@ -3,10 +3,13 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const methodsRouter = require('./methodsRouter.js');
+const reagentsRouter = require('./reagentsRouter.js');
+const reagentsController = require('./reagentsController.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use('/reagents', reagentsRouter);
 app.use('/methods', methodsRouter);
 
 /** SERVE STATIC ASSETS IN PRODUCTION MODE ONLY **/

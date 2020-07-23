@@ -12,6 +12,7 @@ module.exports = {
     publicPath: '/build/',
     proxy: {
       '/methods': 'http://localhost:3000',
+      '/reagents': 'http://localhost:3000',
     },
     watchContentBase: true,
     hot: true,
