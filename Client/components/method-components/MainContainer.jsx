@@ -21,6 +21,7 @@ class MainContainer extends Component {
     this.getReagents = this.getReagents.bind(this);
     this.getAllReagents = this.getAllReagents.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.addReagentToMethod = this.addReagentToMethod.bind(this);
   }
 
   displayMode(mode) {
@@ -108,6 +109,15 @@ class MainContainer extends Component {
     });
   }
 
+  addReagentToMethod() {
+    fetch(`/methods/reagents/${this.state.current._id}/${this.state.toAdd}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'Application/JSON' },
+    })
+      .then((resp) => resp.json())
+      .then(() => this.setState({ display: 'METHOD_INFO', toAdd: null }));
+  }
+
   componentDidMount() {
     fetch('/methods')
       .then((resp) => resp.json())
@@ -138,6 +148,7 @@ class MainContainer extends Component {
             getReagents={this.getReagents}
             getAllReagents={this.getAllReagents}
             handleChange={this.handleChange}
+            addReagentToMethod={this.addReagentToMethod}
           />
         </div>
       </div>

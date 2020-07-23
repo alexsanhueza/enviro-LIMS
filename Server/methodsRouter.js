@@ -5,6 +5,9 @@ const methodsRouter = express.Router();
 methodsRouter.get('/reagents/:_id', methodsController.getReagents, (req, res) => {
   return res.json(res.locals.reagents);
 });
+methodsRouter.post('/reagents/:mID/:rID', methodsController.addReagent, (req, res) => {
+  return res.redirect(301, '/methods');
+});
 
 methodsRouter.get('/', methodsController.getMethods, (req, res) => {
   return res.json(res.locals.methods);

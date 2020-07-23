@@ -12,6 +12,7 @@ const InfoContainer = ({
   getAllReagents,
   allReags,
   handleChange,
+  addReagentToMethod,
 }) => {
   if (current && display === 'METHOD_INFO') {
     let reagentInfo;
@@ -133,7 +134,8 @@ const InfoContainer = ({
           </select>
         </div>
         <div className="infoBtns">
-          <button>{current.epa_method}</button>
+          <button onClick={addReagentToMethod}>Add selected reagent to {current.epa_method}</button>
+          <button onClick={() => displayMode('METHOD_INFO')}>Cancel</button>
         </div>
       </div>
     );

@@ -62,4 +62,11 @@ methodsController.getReagents = (req, res, next) => {
     .catch((err) => next(err));
 };
 
+methodsController.addReagent = (req, res, next) => {
+  const mID = parseInt(req.params.mID);
+  const rID = parseInt(req.params.rID);
+  const queryStr = `INSERT INTO reagents_in_methods VALUES(DEFAULT, ${mID}, ${rID})`;
+  db.query(queryStr).then(() => next());
+};
+
 module.exports = methodsController;
