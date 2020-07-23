@@ -1,6 +1,5 @@
 html {
-  /* background-image: url('../assets/758501.jpg'); */
-  background-color: white;
+  background-color: rgb(243, 243, 243);
   font-family: 'Noto Sans', sans-serif !important;
   color: rgb(34, 34, 34);
 }
@@ -8,13 +7,12 @@ html {
 body {
   margin: 60px 150px;
   padding: 25px;
-  background-color: #76ecce2d;
+  background-color: #e3fdf79c;
   border-radius: 5px;
   max-height: 450px;
   box-shadow: 1px 1px 10px 0px #d8d8d8;
 }
 h1 {
-  color: #616161;
 }
 
 #main {
@@ -78,7 +76,7 @@ h1 {
 }
 
 .infoBtns {
-  border-left: 1px solid;
+  border-left: 1px solid #e4e4e4;
   text-align: center;
 }
 
@@ -122,5 +120,5 @@ button {
 button:hover {
   background-color: white;
   border: solid 1px #e2dfdf;
-  box-shadow: 0px 0px 5px 0px #e4e4e4 inset;
+  box-shadow: 0px 0px 10px -2px #e4e4e4 inset;
 }

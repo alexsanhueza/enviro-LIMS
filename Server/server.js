@@ -4,10 +4,11 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const methodsRouter = require('./methodsRouter.js');
 const reagentsRouter = require('./reagentsRouter.js');
-const reagentsController = require('./reagentsController.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, '../assets/')));
 
 app.use('/reagents', reagentsRouter);
 app.use('/methods', methodsRouter);
@@ -30,4 +31,4 @@ app.use((err, req, res, next) => {
   res.status(500).json(err);
 });
 
-app.listen(3000, () => console.log("You're in the freakin Matrix boi"));
+app.listen(3000, () => console.log(path.join(__dirname, '../assets')));

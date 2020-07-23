@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 
 const ReagentsInfo = ({ current, display, displayMode, addReagent, editReagent, deleteReagent }) => {
   if (current && display === 'REAGENT_INFO') {
+    const nistUrl = `https://webbook.nist.gov/cgi/cbook.cgi?ID=${current.cas_number}&Units=SI`;
     return (
       <div className="selectedInfo">
         <div className="infoList">
           <div>Reagent: {current.name}</div>
           <div>Reagent type: {current.type}</div>
-          <div>CAS ID Number: {current.cas_number}</div>
+          <div>
+            CAS ID Number:{' '}
+            <a href={nistUrl} target="_blank">
+              {current.cas_number}
+            </a>
+          </div>
           <div></div>
           <div></div>
         </div>
