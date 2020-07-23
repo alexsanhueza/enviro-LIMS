@@ -87,6 +87,8 @@ body {
 .infoList {
   padding-top: 30px;
   padding-left: 30px;
+  max-height: 260px;
+  overflow-y: scroll;
 }
 
 .infoList div {

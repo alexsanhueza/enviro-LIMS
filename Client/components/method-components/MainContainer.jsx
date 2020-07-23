@@ -9,16 +9,18 @@ class MainContainer extends Component {
       methods: [],
       current: null,
       display: 'METHOD_INFO',
+      reags: null,
     };
     this.displayMode = this.displayMode.bind(this);
     this.saveNewMethod = this.saveNewMethod.bind(this);
     this.displayMethodInfo = this.displayMethodInfo.bind(this);
     this.editMethod = this.editMethod.bind(this);
     this.deleteMethod = this.deleteMethod.bind(this);
+    this.getReagents = this.getReagents.bind(this);
   }
 
   displayMode(mode) {
-    this.setState({ display: mode });
+    this.setState({ display: mode, reags: null });
   }
   saveNewMethod(postData) {
     fetch(`/methods`, {
@@ -30,7 +32,7 @@ class MainContainer extends Component {
     })
       .then((resp) => resp.json())
       .then((updatedMethods) => {
-        this.setState({ display: 'METHOD_INFO', methods: updatedMethods, current: postData });
+        this.setState({ display: 'METHOD_INFO', methods: updatedMethods, current: postData, reags: null });
       })
       .catch((err) => console.log(err));
   }
@@ -49,6 +51,7 @@ class MainContainer extends Component {
           methods: updatedMethods,
           current: patchData,
           display: 'METHOD_INFO',
+          reags: null,
         });
       })
       .catch((err) => console.log(err));
@@ -67,13 +70,20 @@ class MainContainer extends Component {
           methods: updatedMethods,
           current: updatedMethods[0],
           display: 'METHOD_INFO',
+          reags: null,
         });
       });
   }
 
   displayMethodInfo(id) {
     const methods = this.state.methods;
-    this.setState({ current: methods[id] });
+    this.setState({ current: methods[id], reags: null });
+  }
+
+  getReagents(id) {
+    fetch(`/methods/reagents/${id}`)
+      .then((resp) => resp.json())
+      .then((reags) => this.setState({ reags: reags }));
   }
 
   componentDidMount() {
@@ -96,11 +106,13 @@ class MainContainer extends Component {
             methods={this.state.methods}
             current={this.state.current}
             display={this.state.display}
+            reags={this.state.reags}
             displayMode={this.displayMode}
             saveNewMethod={this.saveNewMethod}
             displayMethodInfo={this.displayMethodInfo}
             editMethod={this.editMethod}
             deleteMethod={this.deleteMethod}
+            getReagents={this.getReagents}
           />
         </div>
       </div>

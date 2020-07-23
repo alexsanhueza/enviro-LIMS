@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
-const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMethod, deleteMethod }) => {
+const InfoContainer = ({ current, display, reags, saveNewMethod, displayMode, editMethod, deleteMethod, getReagents }) => {
   if (current && display === 'METHOD_INFO') {
+    let reagentInfo;
+    reags
+      ? (reagentInfo = reags.map((r, index) => <li key={index}>{r.name}</li>))
+      : (reagentInfo = <button onClick={() => getReagents(current._id)}>Reagent Information</button>);
     return (
       <div className="selectedInfo">
         <div className="infoList">
@@ -10,9 +14,7 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
           <div>Instrumentation: {current.instrumentation}</div>
           <div>Department: {current.department}</div>
           <div>Extraction Solvent: {current.extraction_solvent}</div>
-          <div>
-            <button>Reagent Information</button>
-          </div>
+          <div>Reagents: {reagentInfo}</div>
         </div>
         <div className="infoBtns">
           <button onClick={() => displayMode('EDIT_METHOD')}>Edit Method</button>

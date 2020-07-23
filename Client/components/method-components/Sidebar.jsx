@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import InfoContainer from './InfoContainer.jsx';
 
-const Sidebar = ({ methods, current, display, displayMode, saveNewMethod, displayMethodInfo, editMethod, deleteMethod }) => {
+const Sidebar = ({
+  methods,
+  current,
+  display,
+  displayMode,
+  saveNewMethod,
+  displayMethodInfo,
+  editMethod,
+  deleteMethod,
+  getReagents,
+  reags,
+}) => {
   const methodList = methods.map((meth, index) => (
     <p key={index} onClick={() => displayMethodInfo(index)}>
       {meth.epa_method}
@@ -15,10 +26,12 @@ const Sidebar = ({ methods, current, display, displayMode, saveNewMethod, displa
       <InfoContainer
         current={current}
         display={display}
+        reags={reags}
         saveNewMethod={saveNewMethod}
         displayMode={displayMode}
         editMethod={editMethod}
         deleteMethod={deleteMethod}
+        getReagents={getReagents}
       />
       <button className="addNew" onClick={() => displayMode('ADD_METHOD')}>
         Add Method

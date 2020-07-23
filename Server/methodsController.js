@@ -56,7 +56,6 @@ methodsController.getReagents = (req, res, next) => {
 
   db.query(queryStr)
     .then((data) => {
-      console.log(data.rows);
       res.locals.reagents = data.rows;
       return next();
     })
