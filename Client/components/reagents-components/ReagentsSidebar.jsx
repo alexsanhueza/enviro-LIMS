@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import ReagentsInfo from './ReagentsInfo.jsx';
 
-const ReagentsSidebar = ({ reagents, current, display, displayReagentInfo }) => {
+const ReagentsSidebar = ({
+  reagents,
+  current,
+  display,
+  displayReagentInfo,
+  displayMode,
+  addReagent,
+  editReagent,
+  deleteReagent,
+}) => {
   const reagentList = reagents.map((reag, index) => (
     <p key={index} onClick={() => displayReagentInfo(index)}>
       {reag.name}
@@ -11,8 +20,15 @@ const ReagentsSidebar = ({ reagents, current, display, displayReagentInfo }) => 
     <div id="listContainer">
       <div id="sidebarList">{reagentList}</div>
 
-      <ReagentsInfo current={current} display={display} />
-      <button id="addMethod">Add Reagent</button>
+      <ReagentsInfo
+        current={current}
+        display={display}
+        displayMode={displayMode}
+        addReagent={addReagent}
+        editReagent={editReagent}
+        deleteReagent={deleteReagent}
+      />
+      <button onClick={() => displayMode('ADD_REAGENT')}>Add Reagent</button>
     </div>
   );
 };

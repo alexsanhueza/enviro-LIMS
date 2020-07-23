@@ -17,7 +17,6 @@ class MainContainer extends Component {
     this.deleteMethod = this.deleteMethod.bind(this);
   }
 
-  /** METHOD METHODS**/
   displayMode(mode) {
     this.setState({ display: mode });
   }
@@ -31,9 +30,9 @@ class MainContainer extends Component {
     })
       .then((resp) => resp.json())
       .then((updatedMethods) => {
-        console.log('New Method successful!');
         this.setState({ display: 'METHOD_INFO', methods: updatedMethods, current: postData });
-      });
+      })
+      .catch((err) => console.log(err));
   }
 
   editMethod(id, patchData) {

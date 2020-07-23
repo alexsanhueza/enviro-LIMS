@@ -12,9 +12,7 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
           <div>Extraction Solvent: {current.extraction_solvent}</div>
         </div>
         <div className="infoBtns">
-          <button id="editMethod" onClick={() => displayMode('EDIT_METHOD')}>
-            Edit Method
-          </button>
+          <button onClick={() => displayMode('EDIT_METHOD')}>Edit Method</button>
         </div>
       </div>
     );
@@ -40,7 +38,6 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
         </div>
         <div className="infoBtns">
           <button
-            id="saveMethod"
             onClick={() =>
               saveNewMethod({
                 epa_method: document.getElementById('newEpaMethod').value,
@@ -81,7 +78,6 @@ const InfoContainer = ({ current, display, saveNewMethod, displayMode, editMetho
         </div>
         <div className="infoBtns">
           <button
-            id="saveMethod"
             onClick={() =>
               editMethod(current._id, {
                 epa_method: document.getElementById('newEpaMethod').value,
