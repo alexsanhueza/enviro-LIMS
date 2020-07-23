@@ -35,4 +35,13 @@ reagentsController.editReagent = (req, res, next) => {
     .then(() => next())
     .catch((err) => next(err));
 };
+
+reagentsController.deleteReagent = (req, res, next) => {
+  const reagentID = parseInt(req.params._id);
+  const queryStr = `DELETE FROM reagents WHERE _id=${reagentID};`;
+
+  db.query(queryStr)
+    .then(() => next())
+    .catch((err) => next(err));
+};
 module.exports = reagentsController;
