@@ -1,4 +1,4 @@
-# solo-project-LIMS
+# enviro-LIMS
 A full-stack Laboratory Information Management System CRUD application
 
 Known bugs:
